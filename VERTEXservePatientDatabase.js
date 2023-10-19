@@ -172,10 +172,14 @@ app.get("/about", (req,res)=>{
 app.get("/question", (req,res)=>{
     res.sendFile(__dirname+"/questionnaire/index.html")
 })
+app.get("/thankyou", (req, res) => {
+    res.sendFile((__dirname+ '/public/thankyou.html'));
+});
 app.get("/allPatientData", function(req,res) {
     const allPatients = JSON.parse(fs.readFileSync(`patients.json`, `utf-8`));
     res.json(allPatients);
 });
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -221,6 +225,5 @@ app.post("/", (req,res)=> {
     }else{
         console.log("Questionnaire sent the backend a post command that it did not recognize");
     }
-    res.status(204).send();
-    
+    res.redirect('/thankyou')
 });

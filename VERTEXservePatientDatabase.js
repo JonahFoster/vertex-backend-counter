@@ -126,8 +126,8 @@ function buildPatientJSON(qData){
     if (interpersonalSafetyScore === 1) interpersonalSafetyRisk = "medium";
     if (interpersonalSafetyScore > 1 && interpersonalSafetyScore < 4) interpersonalSafetyRisk = "high";
     if (interpersonalSafetyScore >= 4) interpersonalSafetyRisk = "imminent";
-    if (suicideScore < 5) suicideRisk = "high"; 
-    if (suicideScore >= 5) suicideRisk = "high"; 
+    if (suicideScore > 1 && suicideScore < 5) suicideRisk = "high"; 
+    if (suicideScore >= 5) suicideRisk = "imminent"; 
     if (depressionScore >= 3) depressionRisk = "high";
     if (stressScore < 2) emotionalDistress = "low";
     if (stressScore === 2) emotionalDistress = "medium";

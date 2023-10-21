@@ -5,3 +5,7 @@
 .Header .nav-link{
     color: white !important;
 }
+
+.hr {
+    padding-bottom: 1.5em;
+}

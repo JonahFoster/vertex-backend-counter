@@ -1,0 +1,7 @@
+.Header{
+    background-color: #1b2258;
+}
+
+.Header .nav-link{
+    color: white !important;
+}

@@ -184,7 +184,7 @@ app.get("/allPatientData", function(req,res) {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post("/updatePatient", (req, res) => {
+app.put("/updatePatient", (req, res) => {
     const { patientName, MRN, newData } = req.body
     fs.readFile('patients.json', 'utf8', (err, data) => {
         let PatientData = JSON.parse(data)
@@ -200,7 +200,7 @@ app.post("/updatePatient", (req, res) => {
     });
 });
 
-app.post("/deletePatient", (req, res) => {
+app.delete("/deletePatient", (req, res) => {
     const { patientName, MRN } = req.body
     fs.readFile('patients.json', 'utf8', (data) => {
         let patientData = JSON.parse(data)

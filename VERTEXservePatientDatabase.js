@@ -47,8 +47,8 @@ function getMRN(callback, patientName) {
 
 // put in string, if mrn not equal to null, put mrn, else put mrn not available
 
-function buildPatientJSON(qData){    
-    //Initialize Score Varibles
+function calculateRiskFactors(qData) {
+    // Initialize score variables
     let foodSecurityScore = 0;
     let housingSecurityScore = 0;
     let transportationScore = 0;
@@ -140,22 +140,29 @@ function buildPatientJSON(qData){
     if (highestSubstanceScore === 2) substanceUse = "medium";
     if (highestSubstanceScore === 3) substanceUse = "high";
     if (highestSubstanceScore > 3) substanceUse = "imminent";
+
+    return {
+        foodInsecurity,
+        housingInsecurity,
+        transportationInaccessibility,
+        interpersonalSafetyRisk,
+        suicideRisk,
+        depressionRisk,
+        emotionalDistress,
+        substanceUse
+    };
+}
+
+function buildPatientJSON(qData){    
+    const riskFactors = calculateRiskFactors(qData);
+
     //Assemble patient Data JSON
     let patientData = {
         MRN: null,
         patientName: qData.patientName,
-        riskFactors: {
-           foodInsecurity: foodInsecurity,
-           housingInsecurity: housingInsecurity,
-           transportationInaccessibility:  transportationInaccessibility,
-           interpersonalSafetyRisk: interpersonalSafetyRisk,
-           suicideRisk: suicideRisk,
-           depressionRisk: depressionRisk,
-           emotionalDistress: emotionalDistress,
-           substanceUse: substanceUse
-        },
+        riskFactors,
         questionnaireResponses: qData
-    }
+    };
 
     getMRN((returnedMRN)=>{
         patientData.MRN = returnedMRN;
@@ -186,23 +193,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.put("/updatePatient", (req, res) => {
-    const { patientName, MRN, newData } = req.body
+    const { patientName, MRN, questionnaireResponses } = req.body;
     fs.readFile('patients.json', 'utf8', (err, data) => {
         if (err) {
             return res.status(500).send('Error reading file');
         }
-        let PatientData = JSON.parse(data)
-        let patientIndex = PatientData.findIndex(patient => patient.MRN === MRN && patient.patientName === patientName)
+        let PatientData = JSON.parse(data);
+        let patientIndex = PatientData.findIndex(patient => patient.MRN === MRN && patient.patientName === patientName);
         if (patientIndex !== -1) {
-            PatientData[patientIndex] = newData
+            const updatedRiskFactors = calculateRiskFactors(questionnaireResponses);
+            PatientData[patientIndex].riskFactors = updatedRiskFactors;
+            PatientData[patientIndex].questionnaireResponses = questionnaireResponses;
         } else {
-            res.status(404).send('Patient not found')
-            return
+            res.status(404).send('Patient not found');
+            return;
         }
-        fs.writeFile('patients.json', JSON.stringify(PatientData, null, 4), () => {})
-        res.send('Patient data updated successfully')
+        fs.writeFile('patients.json', JSON.stringify(PatientData, null, 4), () => {});
+        res.send('Patient data updated successfully');
     });
 });
+
+
 
 app.delete("/deletePatient", (req, res) => {
     const { patientName, MRN } = req.body

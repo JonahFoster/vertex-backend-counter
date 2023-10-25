@@ -210,11 +210,15 @@ app.delete("/deletePatient", (req, res) => {
         let patientData = JSON.parse(data)
         let patientIndex = patientData.findIndex(patient => patient.MRN === MRN && patient.patientName === patientName)
         if (patientIndex !== -1) {
-            patientData.splice(patientIndex, 1)
-            fs.writeFile('patients.json', JSON.stringify(patientData, null, 4), () => {})
-            res.send('Patient data deleted successfully')
+            patientData.splice(patientIndex, 1);
+            fs.writeFile('patients.json', JSON.stringify(patientData, null, 4), (err) => {
+                if (err) {
+                    return res.status(500).send('Error writing to file');
+                }
+                res.send('Patient data deleted successfully');
+            });
         } else {
-            res.status(404).send('Patient not found')
+            res.status(404).send('Patient not found');
         }
     });
 });

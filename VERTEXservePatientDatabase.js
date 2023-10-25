@@ -188,6 +188,9 @@ app.use(express.urlencoded({ extended: true }));
 app.put("/updatePatient", (req, res) => {
     const { patientName, MRN, newData } = req.body
     fs.readFile('patients.json', 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading file');
+        }
         let PatientData = JSON.parse(data)
         let patientIndex = PatientData.findIndex(patient => patient.MRN === MRN && patient.patientName === patientName)
         if (patientIndex !== -1) {

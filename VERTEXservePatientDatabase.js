@@ -203,7 +203,10 @@ app.put("/updatePatient", (req, res) => {
 
 app.delete("/deletePatient", (req, res) => {
     const { patientName, MRN } = req.body
-    fs.readFile('patients.json', 'utf8', (data) => {
+    fs.readFile('patients.json', 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading file');
+        }
         let patientData = JSON.parse(data)
         let patientIndex = patientData.findIndex(patient => patient.MRN === MRN && patient.patientName === patientName)
         if (patientIndex !== -1) {

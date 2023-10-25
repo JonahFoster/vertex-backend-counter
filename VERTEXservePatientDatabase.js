@@ -196,7 +196,7 @@ app.put("/updatePatient", (req, res) => {
     const { patientName, MRN, questionnaireResponses } = req.body;
     fs.readFile('patients.json', 'utf8', (err, data) => {
         if (err) {
-            return res.status(500).send('Error reading file');
+            return res.status(500).json({ message: 'Error reading file' });
         }
         let PatientData = JSON.parse(data);
         let patientIndex = PatientData.findIndex(patient => patient.MRN === MRN && patient.patientName === patientName);
@@ -205,21 +205,19 @@ app.put("/updatePatient", (req, res) => {
             PatientData[patientIndex].riskFactors = updatedRiskFactors;
             PatientData[patientIndex].questionnaireResponses = questionnaireResponses;
         } else {
-            res.status(404).send('Patient not found');
+            res.status(404).json({ message: 'Patient not found' });
             return;
         }
         fs.writeFile('patients.json', JSON.stringify(PatientData, null, 4), () => {});
-        res.send('Patient data updated successfully');
+        res.json({ message: 'Patient data updated successfully' });
     });
 });
-
-
 
 app.delete("/deletePatient", (req, res) => {
     const { patientName, MRN } = req.body
     fs.readFile('patients.json', 'utf8', (err, data) => {
         if (err) {
-            return res.status(500).send('Error reading file');
+            return res.status(500).json({ message: 'Error reading file' });
         }
         let patientData = JSON.parse(data)
         let patientIndex = patientData.findIndex(patient => patient.MRN === MRN && patient.patientName === patientName)
@@ -227,15 +225,16 @@ app.delete("/deletePatient", (req, res) => {
             patientData.splice(patientIndex, 1);
             fs.writeFile('patients.json', JSON.stringify(patientData, null, 4), (err) => {
                 if (err) {
-                    return res.status(500).send('Error writing to file');
+                    return res.status(500).json({ message: 'Error writing to file' });
                 }
-                res.send('Patient data deleted successfully');
+                res.status(200).json({ message: 'Patient data deleted successfully' });
             });
         } else {
-            res.status(404).send('Patient not found');
+            res.status(404).json({ message: 'Patient not found' });
         }
     });
 });
+
 
 app.post("/", (req,res)=> {
     let questionnaireData = req.body;
@@ -249,6 +248,7 @@ app.post("/", (req,res)=> {
     }
     res.redirect('/thankyou')
 });
+
 
 const question1 = '1. Do you have food for tonight? (Y/N)';
 const question2 = '2. Within the past 12 months, did you worry that your food would run out before you got money to buy more? (Y/N)';

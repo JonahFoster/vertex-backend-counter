@@ -193,15 +193,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.put("/updatePatient", (req, res) => {
-    const { patientName, MRN, questionnaireResponses } = req.body;
+    const { MRN, patientName, questionnaireResponses } = req.body;
     fs.readFile('patients.json', 'utf8', (err, data) => {
         if (err) {
             return res.status(500).json({ message: 'Error reading file' });
         }
         let PatientData = JSON.parse(data);
-        let patientIndex = PatientData.findIndex(patient => patient.MRN === MRN && patient.patientName === patientName);
+        let patientIndex = PatientData.findIndex(patient => patient.MRN === MRN);
         if (patientIndex !== -1) {
             const updatedRiskFactors = calculateRiskFactors(questionnaireResponses);
+            PatientData[patientIndex].patientName = patientName
             PatientData[patientIndex].riskFactors = updatedRiskFactors;
             PatientData[patientIndex].questionnaireResponses = questionnaireResponses;
         } else {

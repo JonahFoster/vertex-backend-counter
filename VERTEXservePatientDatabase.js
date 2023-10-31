@@ -31,18 +31,21 @@ function savePatientData(patientJSON){
 // Grab MRN - Changed returnedMRN to be response.data.medicalRecordNumber
 function getMRN(callback, patientName) {
     console.log('getMRN called');
-    const apiEndpoint = {
-        url: `http://160.94.179.166/2280/patient/search?name=${encodeURIComponent(patientName)}`,
-        json: true
-    };
-    request(apiEndpoint, (error, response, body) => {
-        if (!error && response.statusCode === 200 && body.medicalRecordNumber) {
-            callback(body.medicalRecordNumber);
-        } else {
-            console.error('Error fetching MRN:', error);
-            callback(`MRN Not Available`);
-        }
-    });
+    //const apiEndpoint = {
+    //    url: `http://160.94.179.166/2280/patient/search?name=${encodeURIComponent(patientName)}`,
+    //    json: true
+    //};
+    //request(apiEndpoint, (error, response, body) => {
+    //    if (!error && response.statusCode === 200 && body.medicalRecordNumber) {
+    //        callback(body.medicalRecordNumber);
+    //    } else {
+    //        console.error('Error fetching MRN:', error);
+    //        callback(`MRN Not Available`);
+    //    }
+    //});
+    const min = 100000
+    const max = 999999
+    callback(Math.floor(Math.random() * (max - min + 1)) + min) 
 }
 
 // put in string, if mrn not equal to null, put mrn, else put mrn not available

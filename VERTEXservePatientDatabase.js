@@ -246,7 +246,7 @@ app.post("/", (req,res)=> {
     let questionnaireData = req.body;
     console.log(questionnaireData);
 
-    if(req.body.command == "computeRiskScores"){
+    if(req.body.questionnaireResponses.command == "computeRiskScores"){
         console.log("Questionnaire requested the backend computeRiskScores");
         console.log("buildPatientJSON is being called")
         buildPatientJSON(questionnaireData);

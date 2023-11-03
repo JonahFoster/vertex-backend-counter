@@ -51,6 +51,7 @@ function getMRN(callback, patientName) {
 // put in string, if mrn not equal to null, put mrn, else put mrn not available
 
 function calculateRiskFactors(qData) {
+    console.log("calculateRiskFactors called")
     // Initialize score variables
     let foodSecurityScore = 0;
     let housingSecurityScore = 0;
@@ -158,7 +159,8 @@ function calculateRiskFactors(qData) {
 
 function buildPatientJSON(qData){    
     const riskFactors = calculateRiskFactors(qData);
-
+    console.log("calculateRiskFactors is being called")
+    console.log("buildPatientJSON called")
     //Assemble patient Data JSON
     let patientData = {
         MRN: null,
@@ -246,6 +248,7 @@ app.post("/", (req,res)=> {
 
     if(req.body.command == "computeRiskScores"){
         console.log("Questionnaire requested the backend computeRiskScores");
+        console.log("buildPatientJSON is being called")
         buildPatientJSON(questionnaireData);
     }else{
         console.log("Questionnaire sent the backend a post command that it did not recognize");

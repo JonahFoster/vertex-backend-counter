@@ -32,7 +32,7 @@ function savePatientData(patientJSON){
 function getMRN(callback, patientName) {
     console.log('getMRN called');
     //const apiEndpoint = {
-    //    url: `http://160.94.179.166/2280/patient/search?name=${encodeURIComponent(patientName)}`,
+    //    url: `http://128.101.131.217//2280/patient/search?name=${encodeURIComponent(patientName)}`,
     //    json: true
     //};
     //request(apiEndpoint, (error, response, body) => {

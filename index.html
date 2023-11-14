@@ -1,113 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME | Vertex</title>
-    <link rel="stylesheet" href="css/Header.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@200&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-</head>
-<body>
-    <!-- PRESENTATION -->
-    <div class="border-bottom border-dark hero">
-        <video autoplay loop muted plays-inline class="back-video">
-            <source src="Assets/Vertex.mp4" type="video/mp4">
-        </video>
-        <!-- Navigation -->
-        <div class="container-fluid Header">
-          <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom border-dark">
-              <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                <img src="Assets/Logo.webp" alt="Logo" id="Logo">
-              </a>
-        
-              <ul class="nav nav-underline align-content-center">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="public/About.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="public/Contact.html" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="questionnaire/index.html" class="nav-link">Survey</a></li>
-              </ul>
-            </header>
+  <head>
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/homepage.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VERTEX</title>
+  </head>
+  <body class="text-white">
+    <div id="background" class="container-fluid vh-100 position-relative">
+      <!-- <div class="container nav" id="home-tab-ui" role="tablist"> -->
+        <header class="hstack p-3 mb-4">
+          <!-- NEEDS LINK -->
+          <a><img src="Assets/Vertex_Logo-NoHover.webp" onmouseover="src='Assets/Vertex_Logo.webp';" onmouseout="src='Assets/Vertex_Logo-NoHover.webp';" alt="Vertex Logo"/></a>
+          <a href="questionnaire/index.html" class="ms-auto btn btn-outline-primary" target="_blank">Try Our Survey</a>
+        </header>
+      <!-- </div> -->
+      <div class="container align-self-center text-center">
+        <div id="Cover-Logo" class="position-absolute top-50 start-50 translate-middle">
+          
+          <div id="carouselAutoplay" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" id="quote">
+                <h1 class="d-block w-100">Innovation to drive more equitable,<br>trauma-informed, integrative healthcare</h1>
+              </div>
+              <div class="carousel-item" id="quote">
+                <h1 class="d-block w-100">Our mission is to provide<br>innovations to bridge the gaps<br>between medicine and the<br>communities we serve to promote<br>more equitable, trauma-informed,<br>patient-centered care.</h1>
+              </div>
+              <div class="carousel-item" id="quote">
+                <h1 class="d-block w-100">
+                  Our vision is to disrupt the current practice of medicine by establishing a more integrated, community-oriented standard of care that effectively addresses social drivers of health.</h1>
+              </div>
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselAutoplay" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide1"></button>
+                <button type="button" data-bs-target="#carouselAutoplay" data-bs-slide-to="1" aria-label="Slide2"></button>
+                <button type="button" data-bs-target="#carouselAutoplay" data-bs-slide-to="2" aria-label="Slide3"></button>
+              </div>
+            </div>
+            
           </div>
-          <!-- Logo Presents -->
-          <div class="px-4 py-5 my-5 text-center">
-            <img src="Assets/Brand-Label.svg" alt="Logo" height="50" id="hero-pic">
-            <div class="col-lg-6 mx-auto">
-              <p class="lead mb-4">
-                Our solutions address healthcare disparities by assisting healthcare systems in bridging the gaps between the care they provide and the various needs of the vulnerable communities they serve.<br><br>
-                Our flagship product, the Vertex 360 Platform, provides psychosocial tools and community resources for interdisciplinary healthcare teams to provide the highest quality of holistic care.
-                
-                </p>
+        </div>
+      </div>
+    </div>
+
+<!-- BOTTOM CONTENT -->
+    <div id="info" class="container-fluid">
+      <nav class="navbar sticky-top shadow mb-5" id="info">
+        <div class="container-fluid justify-content-center">
+          <ul class="nav nav-underline nav-fill col-5" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="pill" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="learn-tab" data-bs-toggle="pill" data-bs-target="#learn" type="button" role="tab" aria-controls="learn" aria-selected="false">Learn More</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+<!-- PAGE 1 -->
+        <div class="tab-content" id="tabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+
+            <!-- STATISTICS CAROUSEL-->
+            <div class="d-flex justify-content-center">
+              <div class="carousel slide col-8" id="carouselStats" data-bs-ride="carousel">
+                <div class="carousel-inner" id="statInner">
+                  <div class="carousel-item active">
+                    <div class="row">
+                      <div class="col-7">
+                        <img src="Assets/68percent.webp" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="col-5">
+                        <h1>68%</h1>
+                        <p>of adults have at least one environmental risk factor that affects their health</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row">
+                      <div class="col-7">
+                        <img src="Assets/70percent.webp" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="col-5">
+                        <h1>80%</h1>
+                        <p>of health outcomes can be attributed to social drivers of health</p>
+                      </div>
+                    </div>
+              
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row">
+                      <div class="col-7">
+                        <img src="Assets/80percent.webp" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="col-5">
+                        <h1>70%</h1>
+                        <p>of adults in the US have experienced some type of traumatic event</p>
+                      </div>
+                    </div>
+            </div>
+            
+                </div>
+                <button class="carousel-control-prev" id="statPrev" type="button" data-bs-target="#carouselStats" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" id="statNext" type="button" data-bs-target="#carouselStats" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Vertex 360 Platform intro -->
+            <div class="container text-center flex-column justify-content-center vh-100 pt-5 px-5">
+                <h1 class="fw-bold" id="vertexPlatformTitle">Vertex 360 Platform</h1>
+                <h3 class="lead">Our Resource-matching algorithm</h3>
+                <br>
+              <div class="row justify-content-center lh-lg pt-5">
+                <div class="col-3 mx-3 rounded-3 py-3 VertexPlatform p-4">
+                  <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+                  <h2 class="fw-normal">Psychosocial Assessment Tool</h2>
+                  <p>The Psychosocial Assessment Tool assesses for social needs such as food and housing insecurity, in addition to assessing for impacts of trauma.</p>
+                </div>
+                <div class="col-3 rounded-3 py-3 VertexPlatform p-4">
+                  <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+                  <h2 class="fw-normal">Trauma-Informed<br>Care Plan</h2>
+                  <p>Our trauma-informed questionnaire incorporates open-ended questions on trauma history and targeted questions on pertinent factors such as triggers and coping skills to promote more sensitive, personalized, holistic care. </p>
+                </div>
+                <div class="col-3 mx-3 rounded-3 py-3 VertexPlatform p-4">
+                  <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+                  <h2 class="fw-normal">Community Resource Platform</h2>
+                  <p>The Psychosocial Resource Platform connects patients to community-based organizations and social services to provide evidence-based interventions to their social and emotional needs.</p>
+                </div>
               </div>
             </div>
           </div>
-
-    <!-- Features -->
-    <div class="container px-4 py-5" id="featured-3">
-        <h2 class="pb-2 border-bottom">Vertex 360 Platform</h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-
-          <div class="feature col">
-            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                <img src="Assets/Psychosocial-Assessment-Tool.svg" alt="Psychosocial-Assessment-Tool" height="100" class="Feature">
+<!-- PAGE 2 -->
+          <div class="tab-pane fade" id="learn" role="tabpanel" aria-labelledby="learn-tab" tabindex="0">
+            <div class="container text-center mt-5">
+              <h1>Core Values</h1>
+              <div class="row justify-content-center col-10 mx-auto lh-lg">
+                <div class="col-3 px-3 mx-5">
+                  <h2>Adaptability</h2>
+                  <p>Adaptability is not just a value; it's our promise to continually evolve and pivot, ensuring that we remain agile in responding to the evolving needs of our patient population. We are committed to maintaining our lasting impact on their healthcare journey</p>
+                </div>
+                <div class="col-3 px-3 mx-5">
+                  <h2>Connectedness</h2>
+                  <p>We hold the core value of connectedness close to our mission. We believe that connectedness is not only essential for fostering innovation through enhanced collaboration but also for amplifying the impact we aim to provide in the communities we serve.</p>
+                </div>
+              </div>
+              <!-- ADD SYMBOL HERE -->
+              <div class="container">
+                <img class="coreValues" src="Assets/coreValues.webp" alt="">
+              </div>
+              <div class="row justify-content-center mx-auto lh-lg">
+                <div class="col-3 px-5 mx-5">
+                  <h2>Impact</h2>
+                  <p>Our unwavering dedication to impact means that every action we take, every connection we make, and every resource we provide is driven by our mission to better serve the patient populations in need of our services.</p>
+                </div>
+                <div class="col-3 px-5 lh-4 mx-3">
+                  <h2>Trust</h2>
+                  <p>Trust is not only essential in building strong relationships with our patients but also in becoming a trusted partner in the broader healthcare ecosystem. We are dedicated to establishing ourselves as a reliable and valued presence within the healthcare industry, dedicated to serving the needs of vulnerable patients with trauma-informed care.</p>
+                </div>
+                <div class="col-3 px-5 mx-5">
+                  <h2>Integrity</h2>
+                  <p>Integrity is the guiding light that ensures we stay true to our other core values. We pledge to uphold these principles in every decision we make, unwavering in our commitment to creating positive change and improving the lives of those we serve.</p>
+                </div>
+              </div>
             </div>
-            <h3 class="fs-2 text-body-emphasis">Psychosocial Assessment Tool</h3>
-            <p>Validated screening tools to assess social risks and the impacts of trauma</p>
-          </div>
 
-          <div class="feature col">
-            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                <img src="Assets/Trauma-Informed-Care-Plan.svg" alt="Trauma-Informed-Care-Plan" height="100" class="Feature">
-            </div>
-            <h3 class="fs-2 text-body-emphasis">Trauma-Informed Care Plan</h3>
-            <p>Trauma-Informed Questionnaire to promote sensitive, patient-centered care.</p>
-          </div>
 
-          <div class="feature col">
-            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-              <img src="Assets/Psychosocial-Resource-Platform.svg" alt="Psychosocial-Resource-Platform" height="100" class="Feature">
+            <!-- TEAM UNDER CONSTRUCTION -->
+            <hr class="text-primary border-3 rounded-5 col-8 mx-auto my-5">
+            <h1 class="text-center mb-3">Meet the Team</h1>
+            <div class="container-fluid col-10 d-flex py-4 rounded-3 Bio">
+              <div class="col-6 p-5 lh-lg">
+                <h1>Maurice Hicks Jr.</h1>
+                <h3>Founder & CEO</h3>
+                <br>
+                <p>After graduating from Carleton College with a Bachelor's Degree in Psychology, Maurice gained valuable, hands-on experience working on child & adolescent psychiatric units. The inequitable, traumatizing care he observed drove him to pursue a career in medicine with the hopes of promoting more equitable, trauma-informed, patient-centered care on a systemic level. As an MD-MBA student, Maurice has pursued this dream by starting and leading two nonprofits committed to mentorship and trauma-informed care of vulnerable populations while also conducting quality improvement research to further his knowledge of the system he hopes to influence. Through the establishment of Vertex Medical Solutions Inc., Maurice hopes to provide innovative solutions to address the complex disparities in medicine with a focus on addressing psychosocial risk factors.</p>
+                <button class="btn">
+                  <a href="https://www.linkedin.com/in/mhicksjr/" target="_blank"><img src="Assets/linkedin.webp" alt=""></a>
+                </button>
+              </div>
+              <div class="vr text-primary rounded-5"></div>
+              <div class="col-5 mx-5 BioImg" id="Mo">
+              </div>
             </div>
-            <h3 class="fs-2 text-body-emphasis">Psychosocial Resource Platform</h3>
-            <p>Network of evidence-based, accessible psychosocial resources within the communit</p>
+            <div class="col-10 row row-cols-2 mx-auto my-2">
+              <div class=" d-flex py-3 Bio">
+                <div class="col-5 BioImg" id="DerekRucker"></div>
+                <div class="px-4 col-7">
+                  <h4>Board of Advisors</h4>
+                  <h2>Derek Rucker</h2>
+                  <p>Derek Rucker is a successful tech entrepreneur, angel investor, pilot, and data geek. He had a successful exit from his startup Carrot Health, which was acquired by UniteUS in August 2021. His current venture is StoryForge, which he started with his daughter Sabrina in 2022. He is an active angel investor with a focus on Minnesota startups. He loves big data, AI, machine learning, and Dungeons & Dragons.</p>
+                </div>
+              </div>
+              <div class="col d-flex py-3 Bio">
+                <div class="col-5 BioImg" id="DavidNguyen"></div>
+                <div class="px-4 col-7">
+                  <h4>Board of Advisors</h4>
+                  <h2>David Nguyen</h2>
+                  <p>David comes from the startup world by way of corporate research in Human-Computer Interaction (HCI). In the innovation space, he has numerous publications on novel technologies and interactions. An avid inventor, he has 40+ patents issued or filled. In the startup space, he has founded multiple startups and will gladly share his learnings with other entrepreneurs and soon-to-be entrepreneurs.</p>
+                </div>
+              </div>
+              <div class="col d-flex py-3 Bio">
+                <div class="col-5 BioImg" id="MarkSanders"></div>
+                <div class="px-4 col-7">
+                  <h4>Board of Advisors</h4>
+                  <h2>Mark Sanders</h2>
+                  <p>Mark’s passion is working with curious people to become inspired and courageous agents of change. He previously served as the Deputy Director of the Austin Technology Incubator at UT Austin, the longest-running technology incubator in the US. A successful entrepreneur, he founded a technology-led environmental remediation company that was acquired by a national firm.  Following the sale of his company, he spent time at Berkeley Lab in Silicon Valley commercializing technologies while also supporting UC Berkeley’s Lab to Market program.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- <div class="container-fluid">
+              <h1>Meet the Team</h1>
+              <hr>
+              <div class="container">
+                <div class="row justify-content-center p-5">
+                  <div class="col-7">
+                    <h1>Maurice Hicks Jr.</h1>
+                    <h3>Founder & CEO</h3>
+                    <br>
+                    <p>After graduating from Carleton College with a Bachelor's Degree in Psychology, Maurice gained valuable, hands-on experience working on child & adolescent psychiatric units. The inequitable, traumatizing care he observed drove him to pursue a career in medicine with the hopes of promoting more equitable, trauma-informed, patient-centered care on a systemic level. As an MD-MBA student, Maurice has pursued this dream by starting and leading two nonprofits committed to mentorship and trauma-informed care of vulnerable populations while also conducting quality improvement research to further his knowledge of the system he hopes to influence. Through the establishment of Vertex Medical Solutions Inc., Maurice hopes to provide innovative solutions to address the complex disparities in medicine with a focus on addressing psychosocial risk factors.</p>
+                  </div>
+                  <img src="Assets/Mo.webp" alt="Mo Hicks Jr.">
+                </div>
+              </div>
+            </div> -->
+
           </div>
         </div>
       </div>
-    <!-- Featurettes-->
-      <hr class="featurette-divider">
-      <div class="row featurette" style="margin-right: 0px">
-        <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">Psychosocial Assessment Tool</h2>
-          <p class="lead">The Psychosocial Assessment Tool includes a social screening questionnaire based on the 5 social determinants of health domains that community services can help with: housing, food, transportation, health, utilities, interpersonal violence. It also assesses for impacts of trauma in a trauma-informed manner that resists retraumatization of the patient.</p>
-        </div>
-        <div class="col-md-5">
-          <img src="Assets/Featurette-1.webp" alt="Featurette-1" height="400">
-        </div>
-      </div>
-      <hr class="featurette-divider">
-      <div class="row featurette" style="margin-right: 0px">
-        <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">
-            Trauma-Informed Care Plan</h2>
-          <p class="lead">Patient completes a trauma-informed questionnaire that physicians can use to implement patient-centered, trauma-informed care during clinical encounters. With a mix of open-ended questions on trauma history and targeted questions on pertinent factors such as triggers and coping skills, the trauma-informed care plan promotes more sensitive, personalized, holistic care.</p>
-        </div>
-        <div class="col-md-5 order-md-1">
-          <img src="Assets/Featurette-2.webp" alt="Featurette-2" height="400">
-        </div>
-      </div>
-      <hr class="featurette-divider">
-      <div class="row featurette" style="margin-right: 0px">
-        <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">
-            Psychosocial Resource Platform</h2>
-          <p class="lead">The Psychosocial Resource Platform connects community-based organizations and social services with various care settings to provide automated, well-curated, evidence-based interventions to the psychosocial risk factors assessed during the visit. This network of resources allows for higher quality care by connecting organizations and services that play a role in caring for the health of our communities.</p>
-        </div>
-        <div class="col-md-5">
-          <img src="Assets/Featurette-3.webp" alt="featured-3" height="400">
-        </div>
-      </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-</body>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

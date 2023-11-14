@@ -1,0 +1,57 @@
+p{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+}
+#quote{
+    padding-top: 40vh;
+    height: 100vh;
+}
+#info{
+    background-color: #0d112c;
+    box-shadow: 0, -20px, 5px, black;
+}
+.VertexPlatform{
+    background-color: #060816;
+}
+#background{
+    background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../Assets/hand-cover_VERTEX.webp);
+    background-size: cover;
+
+}
+#vertexPlatformTitle{
+    font-size:40;
+}
+.coreValues{
+    scale: 0.8;
+}
+/* Spaces out statistic carousel buttons */
+/* #statPrev{
+}
+#statNext{
+} */
+#statInner{
+    padding-right: 100px;
+    padding-left: 100px;
+}
+.Bio{
+    background-color: #060816;
+}
+.BioImg{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+#Mo{
+    background-image: url(../Assets/Mo.webp);
+    
+}
+#DerekRucker{
+    background-image: url(../Assets/DerekRucker.webp);
+}
+#DavidNguyen{
+    background-image: url(../Assets/DavidNguyen.webp);
+}
+#MarkSanders{
+    background-image: url(../Assets/MarkSanders.webp);
+}

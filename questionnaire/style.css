@@ -9,3 +9,7 @@
 .hr {
     padding-bottom: 1.5em;
 }
+
+nav-link:hover {
+    color: #788aaf !important;
+}
